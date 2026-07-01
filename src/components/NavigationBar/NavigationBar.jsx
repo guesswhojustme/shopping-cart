@@ -3,7 +3,7 @@ import styles from './NavigationBar.module.css';
 import { useState } from "react";
 
 export function NavigationBar(){
-    const [count, setCount] = useState(1);
+    const [count, setCount] = useState(2);
 
     function handleClick(num){
         setCount(num)
