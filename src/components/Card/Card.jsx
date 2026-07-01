@@ -30,7 +30,7 @@ export function Card({props}){
                             <span>type:</span>
                             {type.length === 1 ? (
                              <div className={styles[type[0].type.name]}>
-                              {type[0].type.name}
+                              {capitalize(type[0].type.name)}
                              </div>
                             ) : <>
                             <div className={styles[type[0].type.name]}>

@@ -1,11 +1,34 @@
 import { Card } from "../../components/Card/Card.jsx"
-import { pokemons } from "../../data/data.js"
-
+import { starters, legendary, fanFavorites, championPicks } from "../../data/data.js"
+import styles from './ShopPage.module.css';
 export function ShopPage(){
     return(
-        <div>
-            <h1>This is the Shop Page</h1>
-            {pokemons.map(item => <Card key={item.id} props={item}/>)}
+        <div className={styles.container}>
+            <h1>Pokemons</h1>
+            <div className={styles.categoryWrapper}>
+                <span>Starters: </span>
+                <div className={styles.pokemonWrapper}>
+                    {starters.map(item => <Card props={item}/>)}
+                </div>
+            </div>
+            <div className={styles.categoryWrapper}>
+                <span>Legendary: </span>
+                <div className={styles.pokemonWrapper}>
+                    {legendary.map(item => <Card props={item}/>)}
+                </div>
+            </div>
+            <div className={styles.categoryWrapper}>
+                <span>Fan Favorites: </span>
+                <div className={styles.pokemonWrapper}>
+                    {fanFavorites.map(item => <Card props={item}/>)}
+                </div>
+            </div>
+            <div className={styles.categoryWrapper}>
+                <span>Champion's Picks: </span>
+                <div className={styles.pokemonWrapper}>
+                    {championPicks.map(item => <Card props={item}/>)}
+                </div>
+            </div>
         </div>
     )
 }
