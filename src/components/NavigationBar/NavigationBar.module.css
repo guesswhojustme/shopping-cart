@@ -1,0 +1,42 @@
+
+.navBar{
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    height: 53px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: solid black 1px;
+}
+
+.navBar > div{
+    width: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.4s ease;
+}
+
+.navBar > div:hover{
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+.navBar > div:active{
+    height: 48px;
+    background-color: var(--navBarActive);
+}
+
+.navActive{
+   height: 48px;
+   background-color: var(--navBarActive); 
+}
+
+.text{
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}

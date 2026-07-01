@@ -1,3 +1,36 @@
+:root {
+  --backGroundColor: #F9FAFB;
+  --imgBorderColor: #E5E7EB;
+  --navBarActive: #EEEEEE;
+  --pokeDexIdColor: #979797;
+  --trashIconColor: #B0BEC5;
+  --removeBtnColor: #66BB6A;
+  --addToCartBtnColor: #EF5350;
+
+  --grassColor: #9BCC50;
+  --poisonColor: #B97FC9;
+  --normalColor: #A4ACAF;
+  --fireColor: #FD7D24;
+  --waterColor: #4592C4;
+  --psychicColor: #F366B9;
+
+  --flyingUpperColor: #3DC7EF;
+  --flyingLowerColor: #BDB9B8;
+
+  --dragonUpperColor: #53A4CF;
+  --dragonLowerColor: #F16E57;
+
+  --groundUpperColor: #F7DE3F;
+  --groundLowerColor: #AB9842;
+
+  --electricColor: #EED535;
+  --ghostColor: #7B62A3;
+  --fightingColor: #D56723;
+  --steelColor: #9EB7B8;
+  --rockColor: #A38C21;
+  --darkColor: #707070;
+}
+
 @font-face {
     font-family: 'Inter 28pt';
     src: url('fonts/Inter28pt-Regular.woff2') format('woff2'),
@@ -21,4 +54,10 @@
   margin: 0%;
   box-sizing: border-box;
   font-family: 'Inter 28pt';
+}
+
+body{
+  background-color: var(--backGroundColor);
+  display: flex;
+  justify-content: center;
 }
