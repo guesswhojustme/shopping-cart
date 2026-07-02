@@ -8,25 +8,25 @@ export function ShopPage(){
             <div className={styles.categoryWrapper}>
                 <span>Starters: </span>
                 <div className={styles.pokemonWrapper}>
-                    {starters.map(item => <Card props={item}/>)}
+                    {starters.map(item => <Card key={crypto.randomUUID()} pokemon={item}/>)}
                 </div>
             </div>
             <div className={styles.categoryWrapper}>
                 <span>Legendary: </span>
                 <div className={styles.pokemonWrapper}>
-                    {legendary.map(item => <Card props={item}/>)}
+                    {legendary.map(item => <Card key={crypto.randomUUID()} pokemon={item}/>)}
                 </div>
             </div>
             <div className={styles.categoryWrapper}>
                 <span>Fan Favorites: </span>
                 <div className={styles.pokemonWrapper}>
-                    {fanFavorites.map(item => <Card props={item}/>)}
+                    {fanFavorites.map(item => <Card key={crypto.randomUUID()} pokemon={item}/>)}
                 </div>
             </div>
             <div className={styles.categoryWrapper}>
                 <span>Champion's Picks: </span>
                 <div className={styles.pokemonWrapper}>
-                    {championPicks.map(item => <Card props={item}/>)}
+                    {championPicks.map(item => <Card key={crypto.randomUUID()} pokemon={item}/>)}
                 </div>
             </div>
         </div>

@@ -18,6 +18,14 @@
     border: 1px solid var(--imgBorderColor);
     background: #FFF;
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.imgContainer > img {
+    width: 250px;
+    height: 250px;
+
 }
 
 .imgContainer + div{
