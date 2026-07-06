@@ -96,11 +96,13 @@
     padding-left: 10px;
 }
 
-.cardBtns > div:first-child > span{
+.cardBtns > div:first-child > button{
     font-size: 24px;
+    border: none;
+    background: none;
 }
 
-.cardBtns > div:first-child > span:hover{
+.cardBtns > div:first-child > button:hover{
     cursor: pointer;
 }
 
@@ -132,6 +134,12 @@
 .price > p {
     color: var(--removeBtnColor);
     font-weight: bold;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .normal{

@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import styles from './NavigationBar.module.css';
 import { useState } from "react";
 
-export function NavigationBar(){
+export function NavigationBar({addedToCart}){
     const [count, setCount] = useState(1);
 
     function handleClick(num){
-        setCount(num)
+        setCount(num);
     }
     return(
         <div className={styles.navBar}>
@@ -17,7 +17,7 @@ export function NavigationBar(){
                 <Link to='shop' className={styles.text} onClick={() => handleClick(2)}>Shop</Link>
             </div>
             <div className={count === 3 ? styles.navActive : null}>
-                <Link to='cart' className={styles.text} onClick={() => handleClick(3)}>Cart</Link>
+                <Link to='cart' className={styles.cartStyle} onClick={() => handleClick(3)}>Cart <p className={styles.cartNum}>{addedToCart}</p></Link>
             </div>
         </div>
     )

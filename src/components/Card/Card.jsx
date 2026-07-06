@@ -2,8 +2,9 @@ import { array } from 'prop-types';
 import styles from './Card.module.css';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import { capitalize, pokemonType } from '../../utility/utils.js';
 
-export function Card({pokemon}){
+export function Card({pokemon, addToCart}){
     const [pokemonData, setPokemonData] = useState({ 
                                         id: 132,
                                         name: 'ditto',
@@ -15,21 +16,26 @@ export function Card({pokemon}){
                                         img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'
                                     })
                                  
+    const [amount, setAmount] = useState(1)
+
+    function handleInputChange(e){
+        setAmount(e.target.value)
+    }
+
+    function handleIncrease(){
+        setAmount(amount => amount + 1)
+    }
+
+    function handleDecrease(){
+        setAmount(amount => amount - 1)
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
                 const response = await data.json();
                 
-                function pokemonType(type){
-                    if(type.length > 1){
-                        const arr = [type[0].type.name, type[1].type.name];
-                        return arr
-                    } else {
-                        const arr = [type[0].type.name] 
-                        return arr        
-                    }
-                }
                 setPokemonData({ 
                     id: response.id,
                     name: response.name,
@@ -46,10 +52,6 @@ export function Card({pokemon}){
         }
         fetchData();
     }, [pokemon])
-
-    function capitalize(name){
-        return name.charAt(0).toUpperCase() + name.slice(1)
-    }
 
     return(
         <div>
@@ -103,11 +105,16 @@ export function Card({pokemon}){
             </div>
             <div className={styles.cardBtns}>
                 <div>
-                    <input type="text" placeholder='amount'/>
-                    <span>+</span>
+                    <input type="number" min={1} max={100} onWheel={(e) => e.target.blur()} value={amount} onChange={handleInputChange}/>
+                    {amount < 2 ? (<button onClick={handleIncrease}>+</button> ) : (
+                        <>
+                        <button onClick={handleDecrease}>-</button>
+                        <button onClick={handleIncrease}>+</button>
+                        </>
+                    )}
                 </div>
                 <div>
-                    <button>
+                    <button onClick={() => addToCart(amount)} >
                         add to cart
                         <img src="shopping_cart.svg" alt="cart" />
                     </button>
