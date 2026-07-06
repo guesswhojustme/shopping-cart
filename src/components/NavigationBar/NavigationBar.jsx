@@ -4,6 +4,16 @@ import { useState } from "react";
 
 export function NavigationBar({addedToCart}){
     const [count, setCount] = useState(1);
+   
+    function addedToCartNumber(){
+        let count = 0;
+        for( let i = 0; i < addedToCart.length; i++ ){
+            if(addedToCart[i].value > 0){
+                count += addedToCart[i].value
+            }
+        }
+        return count;
+    }
 
     function handleClick(num){
         setCount(num);
@@ -17,7 +27,7 @@ export function NavigationBar({addedToCart}){
                 <Link to='shop' className={styles.text} onClick={() => handleClick(2)}>Shop</Link>
             </div>
             <div className={count === 3 ? styles.navActive : null}>
-                <Link to='cart' className={styles.cartStyle} onClick={() => handleClick(3)}>Cart <p className={styles.cartNum}>{addedToCart}</p></Link>
+                <Link to='cart' className={styles.cartStyle} onClick={() => handleClick(3)}>Cart <p className={styles.cartNum}>{addedToCartNumber()}</p></Link>
             </div>
         </div>
     )

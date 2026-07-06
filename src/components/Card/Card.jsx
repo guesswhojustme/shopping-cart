@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { capitalize, pokemonType } from '../../utility/utils.js';
 
-export function Card({pokemon, addToCart}){
+export function Card({pokemon, addToCart, removeToCart, addedToCartValue, page, handleIncreaseState, handleDecreaseState}){
     const [pokemonData, setPokemonData] = useState({ 
                                         id: 132,
                                         name: 'ditto',
@@ -17,17 +17,35 @@ export function Card({pokemon, addToCart}){
                                     })
                                  
     const [amount, setAmount] = useState(1)
+    const [cartVal, setCartValue] = useState(addedToCartValue);
 
     function handleInputChange(e){
         setAmount(e.target.value)
     }
 
     function handleIncrease(){
+        if(cartVal){
+            setCartValue(cartVal => cartVal + 1);
+            handleIncreaseState(pokemonData.name);
+            return
+        }
         setAmount(amount => amount + 1)
     }
 
     function handleDecrease(){
-        setAmount(amount => amount - 1)
+        if(cartVal === 1){
+            return
+        }else{
+            setCartValue(cartVal => cartVal - 1)
+            handleDecreaseState(pokemonData.name);
+            return
+        }
+
+        if(amount === 1){
+            return
+        }else{
+            setAmount(amount => amount - 1)
+        }
     }
 
     useEffect(() => {
@@ -105,19 +123,37 @@ export function Card({pokemon, addToCart}){
             </div>
             <div className={styles.cardBtns}>
                 <div>
-                    <input type="number" min={1} max={100} onWheel={(e) => e.target.blur()} value={amount} onChange={handleInputChange}/>
-                    {amount < 2 ? (<button onClick={handleIncrease}>+</button> ) : (
-                        <>
-                        <button onClick={handleDecrease}>-</button>
-                        <button onClick={handleIncrease}>+</button>
-                        </>
-                    )}
+                    {page === 'shop' ? 
+                    <input type="number" 
+                        min={1} max={100} 
+                        onWheel={(e) => e.target.blur()} 
+                        value={amount} 
+                        onChange={handleInputChange}
+                    /> : 
+                    <input type="number" 
+                        min={1} max={100} 
+                        onWheel={(e) => e.target.blur()} 
+                        disabled
+                        value={cartVal} 
+                        onKeyDown={(e) => e.preventDefault()}
+                    />
+                    }
+                    <>
+                    <button onClick={handleDecrease}>-</button>
+                    <button onClick={handleIncrease}>+</button>
+                    </>
                 </div>
                 <div>
-                    <button onClick={() => addToCart(amount)} >
+                    {page === 'shop' ? (<button className={styles.addToCartBtn} onClick={() => addToCart(amount, pokemonData.name)} >
                         add to cart
                         <img src="shopping_cart.svg" alt="cart" />
+                    </button>) : (
+                    <button className={styles.removeBtn} onClick={() => removeToCart(pokemonData.name)}> 
+                        remove
+                        <img src="trash.svg" alt="trash" />
                     </button>
+                    )
+                    }
                 </div>
             </div>
         </div>

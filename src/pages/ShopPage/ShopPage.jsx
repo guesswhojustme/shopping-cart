@@ -4,32 +4,32 @@ import styles from './ShopPage.module.css';
 import { useOutletContext } from "react-router-dom";
 
 export function ShopPage(){
-    const { handleAddToCart } = useOutletContext();
+    const { handleAddToCartBtn, handleRemoveToCartBtn} = useOutletContext();
     return(
         <div className={styles.container}>
             <h1>Pokemons</h1>
             <div className={styles.categoryWrapper}>
                 <span>Starters: </span>
                 <div className={styles.pokemonWrapper}>
-                    {starters.map(item => <Card key={item.id} pokemon={item} addToCart={handleAddToCart}/>)}
+                    {starters.map(item => <Card key={item.id} pokemon={item} addToCart={handleAddToCartBtn} removeToCart={handleRemoveToCartBtn} page={'shop'} />)}
                 </div>
             </div>
             <div className={styles.categoryWrapper}>
                 <span>Legendary: </span>
                 <div className={styles.pokemonWrapper}>
-                    {legendary.map(item => <Card key={item.id} pokemon={item} addToCart={handleAddToCart}/>)}
+                    {legendary.map(item => <Card key={item.id} pokemon={item} addToCart={handleAddToCartBtn} removeToCart={handleRemoveToCartBtn} page={'shop'} />)}
                 </div>
             </div>
             <div className={styles.categoryWrapper}>
-                <span>Fan Favorites: </span>s
+                <span>Fan Favorites: </span>
                 <div className={styles.pokemonWrapper}>
-                    {fanFavorites.map(item => <Card key={item.id} pokemon={item} addToCart={handleAddToCart}/>)}
+                    {fanFavorites.map(item => <Card key={item.id} pokemon={item} addToCart={handleAddToCartBtn} removeToCart={handleRemoveToCartBtn} page={'shop'} />)}
                 </div>
             </div>
             <div className={styles.categoryWrapper}>
                 <span>Champion's Picks: </span>
                 <div className={styles.pokemonWrapper}>
-                    {championPicks.map(item => <Card key={item.id} pokemon={item} addToCart={handleAddToCart}/>)}
+                    {championPicks.map(item => <Card key={item.id} pokemon={item} addToCart={handleAddToCartBtn} removeToCart={handleRemoveToCartBtn} page={'shop'} />)}
                 </div>
             </div>
         </div>

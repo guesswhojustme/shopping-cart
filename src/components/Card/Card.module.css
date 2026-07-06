@@ -106,8 +106,8 @@
     cursor: pointer;
 }
 
-.cardBtns > div:last-child > button{
-    width: 119px;
+.addToCartBtn{
+    width: 115px;
     height: 30px;
     font-size: 14px;
     border-radius: 6px;
@@ -116,12 +116,19 @@
     color: white;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 5px;
 }
 
-.cardBtns > div:last-child > button:hover{
+.addToCartBtn:hover, .removeBtn:hover{
     cursor: pointer;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.removeBtn{
+    composes: addToCartBtn;
+    background: var(--removeBtnColor);
+    width: 95px;
 }
 
 .price{
@@ -135,6 +142,8 @@
     color: var(--removeBtnColor);
     font-weight: bold;
 }
+
+
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
