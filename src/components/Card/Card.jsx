@@ -162,14 +162,12 @@ export function Card({pokemon, addToCart, removeToCart, addedToCartValue, page, 
     )
 }
 
-// Card.propTypes = {
-//     props: PropTypes.shape({
-//         id: PropTypes.number.isRequired,
-//         name: PropTypes.string.isRequired,
-//         type: PropTypes.array.isRequired,
-//         weight: PropTypes.number.isRequired,
-//         height: PropTypes.number.isRequired,
-//         hp: PropTypes.number.isRequired,
-//         price: PropTypes.string.isRequired,
-//     }).isRequired,
-// }
+Card.propTypes = {
+    pokemon: PropTypes.string.isRequired,
+    addToCart: PropTypes.func,
+    removeToCart: PropTypes.func,
+    addedToCartValue: PropTypes.func,
+    page: PropTypes.string.isRequired,
+    handleDecreaseState: PropTypes.func,
+    handleIncreaseState: PropTypes.func
+}
