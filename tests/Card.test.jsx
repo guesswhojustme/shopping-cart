@@ -4,9 +4,6 @@ import userEvent from "@testing-library/user-event"
 import { Card } from "../src/components/Card/Card.jsx";
 import { type } from "@testing-library/user-event/dist/cjs/utility/type.js";
 
-
-
-
 describe("Card component test", () => {
     const onClick = vi.fn();
     const user = userEvent.setup();
