@@ -30,3 +30,7 @@ export const championPicks = [
   'metagross',
   'salamence',
 ];
+
+const arr = []
+
+console.log(arr.length);

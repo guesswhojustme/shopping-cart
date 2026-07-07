@@ -28,7 +28,7 @@ export function CartPage(){
         <div className={styles.container}>
             <h1>Your Cart</h1>
             <div className={styles.cardsContainer}>
-            {render.map(item => item)}
+            {render.length === 0 ? <span className={styles.nog}>Nothing inside here. Go buy some pokemons!</span> : render.map(item => item)}
             </div>
         </div>
     )

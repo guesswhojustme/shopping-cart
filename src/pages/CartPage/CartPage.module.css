@@ -12,3 +12,10 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
 }
+
+.nog{
+    position: relative;
+    left: 115%;
+    top: 150px;
+    opacity: 50%;
+}
