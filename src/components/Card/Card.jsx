@@ -48,28 +48,30 @@ export function Card({pokemon, addToCart, removeToCart, addedToCartValue, page, 
         }
     }
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
-                const response = await data.json();
-                
-                setPokemonData({ 
-                    id: response.id,
-                    name: response.name,
-                    type: pokemonType(response.types),
-                    weight: response.weight,
-                    height: response.height,
-                    hp: response.stats[0].base_stat,
-                    price: `${response.stats[0].base_stat * 1.5}$`,
-                    img: response.sprites.other["official-artwork"].front_default
-                })
-            } catch (error) {
-                console.log(error);
+    if(pokemon){
+        useEffect(() => {
+            const fetchData = async () => {
+                try {
+                    const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+                    const response = await data.json();
+                    
+                    setPokemonData({ 
+                        id: response.id,
+                        name: response.name,
+                        type: pokemonType(response.types),
+                        weight: response.weight,
+                        height: response.height,
+                        hp: response.stats[0].base_stat,
+                        price: `${response.stats[0].base_stat * 1.5}$`,
+                        img: response.sprites.other["official-artwork"].front_default
+                    })
+                } catch (error) {
+                    console.log(error);
+                }
             }
-        }
-        fetchData();
-    }, [pokemon])
+            fetchData();
+        }, [pokemon])
+    }
 
     return(
         <div>
