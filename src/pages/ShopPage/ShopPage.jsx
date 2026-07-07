@@ -5,9 +5,10 @@ import { useOutletContext } from "react-router-dom";
 
 export function ShopPage(){
     const { handleAddToCartBtn, handleRemoveToCartBtn} = useOutletContext();
+    
     return(
         <div className={styles.container}>
-            <h1>Pokemons</h1>
+            <h1>Available Pokemons</h1>
             <div className={styles.categoryWrapper}>
                 <span>Starters: </span>
                 <div className={styles.pokemonWrapper}>

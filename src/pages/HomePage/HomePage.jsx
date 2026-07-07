@@ -11,7 +11,7 @@ export function HomePage(){
                     <p>Tired of wasting pokeballs and walking around grasses to catch pokemon?</p>
                     <p>Dont worry we got you!</p>
                 </div>
-                <span><strong>Buy now!</strong></span>
+                <Link  className={styles.link} to='shop'>Buy now!</Link>
             </div>
         </div>
     )

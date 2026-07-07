@@ -17,7 +17,7 @@ function App() {
       handleAddToCart(parseInt(amount), pokemon)
       alert("added to cart!")
   }
-  
+
   return (
     <div className='app-container'>
       <NavigationBar addedToCart={addedToCart} />

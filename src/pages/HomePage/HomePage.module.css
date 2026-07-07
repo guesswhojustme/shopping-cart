@@ -33,3 +33,9 @@
 .mid > div > p {
     font-size: 20px;
 }
+
+.link{
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+}
