@@ -15,7 +15,7 @@ export function Card({pokemon, addToCart, removeToCart, addedToCartValue, page, 
                                         price: '$0',
                                         img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'
                                     })
-                                 
+
     const [amount, setAmount] = useState(1)
     const [cartVal, setCartValue] = useState(addedToCartValue);
 
@@ -35,7 +35,7 @@ export function Card({pokemon, addToCart, removeToCart, addedToCartValue, page, 
     function handleDecrease(){
         if(cartVal === 1){
             return
-        }else{
+        }else if(cartVal){
             setCartValue(cartVal => cartVal - 1)
             handleDecreaseState(pokemonData.name);
             return
